@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Crust Bakery | Fresh Breakfast for Commuters in Tampines</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #D4A574;
+      --accent-color: #8B4513;
+      --dark-bg: #1A1A1A;
+      --light-bg: #F8F6F3;
+      --text-dark: #2C2C2C;
+      --text-light: #666666;
+      --border-color: #E8E0D5;
+      --success-color: #4CAF50;
+      --error-color: #F44336;
+      --spacing-unit: 1rem;
+      --border-radius: 12px;
+      --container-max: 1200px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: 24px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-inline: 16px;
+      }
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-color);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--primary-color);
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    section.hero {
+      background: linear-gradient(135deg, #FFF8F0 0%, #F8F6F3 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #FFFFFF;
+      padding: 16px 40px;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary-color);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .hero-cta:hover,
+    .hero-cta:focus {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+      outline: none;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(139, 69, 19, 0.2);
+    }
+
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(139, 69, 19, 0.05) 100%);
+      border-radius: var(--border-radius);
+      position: relative;
+    }
+
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at 30% 30%, rgba(212, 165, 116, 0.3), rgba(212, 165, 116, 0) 70%);
+      border-radius: 50%;
+      top: 20px;
+      left: 20px;
+    }
+
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at 70% 70%, rgba(139, 69, 19, 0.1), rgba(139, 69, 19, 0) 70%);
+      border-radius: 50%;
+      bottom: 40px;
+      right: 30px;
+    }
+
+    .hero-icon {
+      position: relative;
+      z-index: 1;
+      font-size: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-text p {
+        font-size: 16px;
+      }
+
+      section.hero {
+        padding: 60px 0;
+      }
+
+      .hero-visual {
+        min-height: 300px;
+      }
+    }
+
+    /* Products Section */
+    section.products {
+      padding: 80px 0;
+      background-color: #FFFFFF;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 600px;
+      margin-inline: auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .product-card {
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 32px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(139, 69, 19, 0.12);
+      border-color: var(--primary-color);
+    }
+
+    .product-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .product-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      section.products {
+        padding: 60px 0;
+      }
+
+      .section-header h2 {
+        font-size: 32px;
+      }
+
+      .product-grid {
+        gap: 24px;
+      }
+    }
+
+    /* Benefits Section */
+    section.benefits {
+      padding: 80px 0;
+      background-color: var(--light-bg);
+    }
+
+    .benefits-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .benefits-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .benefit-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .benefit-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .benefit-content p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .benefits-visual {
+      background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(139, 69, 19, 0.08) 100%);
+      border-radius: var(--border-radius);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .benefits-visual::before {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle at 40% 40%, rgba(212, 165, 116, 0.2), rgba(212, 165, 116, 0) 70%);
+      border-radius: 50%;
+    }
+
+    .benefits-visual-content {
+      position: relative;
+      z-index: 1;
+      font-size: 100px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .benefits-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      section.benefits {
+        padding: 60px 0;
+      }
+
+      .benefits-text h2 {
+        font-size: 32px;
+      }
+
+      .benefits-visual {
+        min-height: 300px;
+      }
+    }
+
+    /* Trust Section */
+    section.trust {
+      padding: 80px 0;
+      background-color: #FFFFFF;
+    }
+
+    .trust-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .trust-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .trust-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .trust-header p {
+      font-size: 16px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .trust-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .trust-point {
+      padding: 24px;
+      background-color: var(--light-bg);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .trust-point h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .trust-point p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      section.trust {
+        padding: 60px 0;
+      }
+
+      .trust-header h2 {
+        font-size: 32px;
+      }
+
+      .trust-points {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* Interest Section */
+    section#interest {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #FFF8F0 0%, var(--light-bg) 100%);
+    }
+
+    .interest-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .interest-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .interest-header p {
+      font-size: 16px;
+      color: var(--text-light);
+      max-width: 500px;
+      margin-inline: auto;
+    }
+
+    .forms-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .form-wrapper {
+      background-color: #FFFFFF;
+      padding: 40px;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-wrapper h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .form-wrapper .description {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    form label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    form input {
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      background-color: #FAFAF8;
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    }
+
+    form button {
+      padding: 14px 24px;
+      background-color: var(--primary-color);
+      color: #FFFFFF;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 8px;
+    }
+
+    form button:hover,
+    form button:focus {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+      outline: none;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(139, 69, 19, 0.2);
+    }
+
+    form button:active {
+      transform: translateY(0);
+    }
+
+    .status-message {
+      font-size: 14px;
+      padding: 12px;
+      border-radius: 6px;
+      display: none;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .status-message.success {
+      display: block;
+      background-color: rgba(76, 175, 80, 0.1);
+      color: #2E7D32;
+      border: 1px solid #4CAF50;
+    }
+
+    .status-message.error {
+      display: block;
+      background-color: rgba(244, 67, 54, 0.1);
+      color: #C62828;
+      border: 1px solid #F44336;
+    }
+
+    @media (max-width: 768px) {
+      section#interest {
+        padding: 60px 0;
+      }
+
+      .interest-header h2 {
+        font-size: 32px;
+      }
+
+      .forms-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .form-wrapper {
+        padding: 32px;
+      }
+    }
+
+    /* FAQ Section */
+    section.faq {
+      padding: 80px 0;
+      background-color: var(--light-bg);
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .faq-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .faq-items {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(139, 69, 19, 0.08);
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-dark);
+      background-color: #FAFAF8;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-item.active .faq-question {
+      background-color: var(--light-bg);
+      color: var(--accent-color);
+    }
+
+    .faq-icon {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 24px;
+      color: var(--text-light);
+      background-color: #FFFFFF;
+      font-size: 14px;
+      line-height: 1.8;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      section.faq {
+        padding: 60px 0;
+      }
+
+      .faq-header h2 {
+        font-size: 32px;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: #FFFFFF;
+      padding: 48px 0 24px;
+      font-size: 14px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--primary-color);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover,
+    .footer-section a:focus {
+      color: var(--primary-color);
+      outline: none;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Focus styles */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-content">
+        <a href="#" class="nav-brand">Golden Crust Bakery</a>
+        <ul class="nav-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#benefits">Why Us</a></li>
+          <li><a href="#interest">Register Interest</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Fresh Breakfast for Your Morning Rush</h1>
+          <p>Grab-and-go freshly baked pastries, bread, and cakes in Tampines. Quality breakfast that doesn't slow you down.</p>
+          <a href="#interest" class="hero-cta">Register My Interest</a>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-icon">🥐</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We Bake Fresh Daily</h2>
+        <p>Every item is baked with care to ensure you get the best quality breakfast on your commute.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="product-icon">🍞</span>
+          <h3>Artisan Bread</h3>
+          <p>Crusty sourdough, whole wheat, and specialty loaves baked fresh every morning. Perfect for any time of day.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-icon">🥧</span>
+          <h3>Pastries & Croissants</h3>
+          <p>Buttery croissants, Danish pastries, and flaky treats. Grab one (or two) for the perfect start to your day.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-icon">🎂</span>
+          <h3>Cakes</h3>
+          <p>Classic and contemporary cakes for celebrations or everyday indulgence. Customization available for special occasions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="benefits-layout">
+        <div class="benefits-text">
+          <h2>Made for Your Morning</h2>
+          <div class="benefit-item">
+            <div class="benefit-icon">⚡</div>
+            <div class="benefit-content">
+              <h3>Lightning-Fast Service</h3>
+              <p>In and out in minutes. We understand your commute doesn't wait.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">✨</div>
+            <div class="benefit-content">
+              <h3>Visibly Fresh</h3>
+              <p>Everything baked fresh daily. You can see and taste the quality difference.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">💰</div>
+            <div class="benefit-content">
+              <h3>Clear, Fair Pricing</h3>
+              <p>No hidden costs. Transparent pricing so you know exactly what you're paying for.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🔄</div>
+            <div class="benefit-content">
+              <h3>Consistent Quality</h3>
+              <p>Same great taste every time you visit. A reliable breakfast experience you can depend on.</p>
+            </div>
+          </div>
+        </div>
+        <div class="benefits-visual">
+          <div class="benefits-visual-content">☕</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="trust">
+    <div class="container">
+      <div class="trust-content">
+        <div class="trust-header">
+          <h2>Built for Commuters Like You</h2>
+          <p>Golden Crust Bakery is designed specifically for morning commuters in Tampines who value their time and want quality breakfast without compromise.</p>
+        </div>
+        <div class="trust-points">
+          <div class="trust-point">
+            <h3>Tampines Location</h3>
+            <p>Conveniently located to fit your commute route. No detours needed.</p>
+          </div>
+          <div class="trust-point">
+            <h3>Morning Freshness</h3>
+            <p>Baked fresh every morning, ready when you arrive. Peak quality, peak taste.</p>
+          </div>
+          <div class="trust-point">
+            <h3>Grab-and-Go Ready</h3>
+            <p>Individual portions, clear labeling, and quick packaging. Breakfast on your terms.</p>
+          </div>
+          <div class="trust-point">
+            <h3>Coming Soon</h3>
+            <p>Loyalty rewards and morning specials planned. More value for regular customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interest Section -->
+  <section id="interest">
+    <div class="container">
+      <div class="interest-header">
+        <h2>Stay Updated</h2>
+        <p>Be the first to know when Golden Crust Bakery opens and get exclusive updates on our menu, specials, and loyalty program.</p>
+      </div>
+      <div class="forms-container">
+        <!-- Expression of Interest Form -->
+        <div class="form-wrapper">
+          <h3>Register Your Interest</h3>
+          <p class="description">Join our community and receive opening updates and breakfast inspiration straight to your inbox.</p>
+          <form id="byteforce-registration-form" action="">
+            <div class="form-group">
+              <label for="byteforce-name">Your Name</label>
+              <input type="text" id="byteforce-name" name="name" placeholder="e.g., Colin" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="byteforce-email">Email Address</label>
+              <input type="email" id="byteforce-email" name="email" placeholder="e.g., colin@example.com" required autocomplete="email">
+            </div>
+            <button type="submit">Register My Interest</button>
+            <div id="byteforce-registration-status" class="status-message"></div>
+          </form>
+        </div>
+
+        <!-- Update Email Form -->
+        <div class="form-wrapper">
+          <h3>Update Your Email</h3>
+          <p class="description">Already registered? Update your email address to stay connected with the latest updates.</p>
+          <form id="byteforce-update-email-form" action="">
+            <div class="form-group">
+              <label for="byteforce-old-email">Current Email</label>
+              <input type="email" id="byteforce-old-email" name="old_email" placeholder="Your previous email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="byteforce-new-email">New Email Address</label>
+              <input type="email" id="byteforce-new-email" name="new_email" placeholder="Your new email" required autocomplete="email">
+            </div>
+            <button type="submit">Update Email</button>
+            <div id="byteforce-update-email-status" class="status-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <div class="faq-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-items">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>When will Golden Crust Bakery open?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            We're coming soon to Tampines! Register your interest to be notified the moment we open. We're working hard to bring you the freshest breakfast experience.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What time should I visit for the freshest items?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            Everything is baked fresh daily early in the morning to meet your commute. We'll share specific timing details once we're open. Follow us for updates!
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I order custom cakes in advance?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            Yes! We offer customizable cakes for celebrations and special occasions. Contact us through our interest form and we'll follow up with details once we open.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you have pricing information available?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            Our pricing is transparent and fair. We'll share our complete menu with pricing once we launch. Register to get early access to pricing information and exclusive offers.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Golden Crust Bakery</h3>
+          <p style="color: rgba(255, 255, 255, 0.8); font-size: 14px; line-height: 1.6;">Fresh, fast, and friendly breakfast for Tampines commuters. Opening soon.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#products">Our Products</a></li>
+            <li><a href="#benefits">Why Choose Us</a></li>
+            <li><a href="#interest">Register Interest</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Location</h3>
+          <p style="color: rgba(255, 255, 255, 0.8); font-size: 14px; line-height: 1.6;">Tampines, Singapore</p>
+          <p style="color: rgba(255, 255, 255, 0.8); font-size: 14px; line-height: 1.6;">Coming soon</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Golden Crust Bakery. All rights reserved. | Fresh Breakfast for Your Morning</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Toggle Functionality
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+<!-- byteforce-lead-form-injected -->
+<script>
+(function () {
+  var BYTEFORCE_WEBSITE_ID   = "website-1779";
+  var BYTEFORCE_WEBSITE_NAME = "Marketing Plan - We are an new physical bakery called “Golden Crust Bakery” l";
+  var BYTEFORCE_WEBHOOK_URL  = "https://agenticflows.westus3.cloudapp.azure.com/webhook/user-register";
+
+  function findField(form, patterns) {
+    var candidates = form.querySelectorAll('input, textarea');
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      var haystack = ((el.name || '') + ' ' + (el.id || '') + ' ' + (el.type || '') + ' ' + (el.placeholder || '')).toLowerCase();
+      for (var j = 0; j < patterns.length; j++) {
+        if (haystack.indexOf(patterns[j]) !== -1) return el;
+      }
+    }
+    return null;
+  }
+
+  function showMessage(form, text, isError) {
+    var el = form.querySelector('.byteforce-form-message');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'byteforce-form-message';
+      el.style.marginTop = '12px';
+      el.style.fontSize = '14px';
+      el.style.fontFamily = 'inherit';
+      form.appendChild(el);
+    }
+    el.textContent = text;
+    el.style.color = isError ? '#dc2626' : '#059669';
+  }
+
+  function attach(form) {
+    if (form.dataset.byteforceBound === '1') return;
+    form.dataset.byteforceBound = '1';
+
+    // Defence-in-depth against native submission ever navigating anywhere —
+    // a form with no action attribute defaults to submitting to the current
+    // document's URL, which for a srcDoc preview iframe resolves to the
+    // PARENT page's own URL (the dashboard), not a blank page. Belt-and-
+    // braces alongside preventDefault() below and the iframe's sandbox
+    // (which already omits allow-forms — see WebsitePreview.jsx).
+    form.setAttribute('action', '#');
+
+    var submitBtn = form.querySelector('button[type="submit"], input[type="submit"]') || form.querySelector('button');
+    var submitting = false;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (submitting) return;
+
+      var emailEl = findField(form, ['email']);
+      var nameEl  = findField(form, ['name']) || form.querySelector('input[type="text"]');
+      var email   = emailEl ? emailEl.value.trim() : '';
+      var name    = nameEl ? nameEl.value.trim() : '';
+
+      if (!email) {
+        showMessage(form, 'Please enter a valid email address.', true);
+        return;
+      }
+
+      submitting = true;
+      var originalText = submitBtn ? submitBtn.textContent : null;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+      }
+
+      fetch(BYTEFORCE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action:      'register',
+          name:        name,
+          email:       email,
+          websiteId:   BYTEFORCE_WEBSITE_ID,
+          websiteName: BYTEFORCE_WEBSITE_NAME,
+          source:      window.location.origin,
+        }),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Request failed');
+          return res.json().catch(function () { return {}; });
+        })
+        .then(function () {
+          showMessage(form, "Thanks! We've received your submission.", false);
+          form.reset();
+        })
+        .catch(function () {
+          showMessage(form, 'Something went wrong. Please try again.', true);
+        })
+        .finally(function () {
+          submitting = false;
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
+    });
+  }
+
+  function init() {
+    var forms = document.querySelectorAll('form');
+    var bound = 0;
+    for (var i = 0; i < forms.length; i++) {
+      // One malformed form (e.g. an AI-generated quirk) shouldn't stop the
+      // rest from getting bound — each form is independent.
+      try {
+        attach(forms[i]);
+        bound++;
+      } catch (err) {
+        console.error('[byteforce-lead-form] failed to bind form', i, err);
+      }
+    }
+    // Verifiable from the browser console — confirms both that this script
+    // ran at all and how many forms it actually bound, without guessing.
+    window.__byteforceLeadForm = { ready: true, formsFound: forms.length, formsBound: bound };
+    console.log('[byteforce-lead-form] ready — found ' + forms.length + ' form(s), bound ' + bound);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
